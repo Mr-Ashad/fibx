@@ -1,26 +1,314 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ========================================
+   FIBX Agency — Global Design Tokens
+   ======================================== */
+
+@theme {
+  /* Brand Colors */
+  --color-brand: #2563EB;
+  --color-brand-light: #3B82F6;
+  --color-brand-dark: #1D4ED8;
+  --color-brand-50: #EFF6FF;
+  --color-brand-100: #DBEAFE;
+
+  /* Neutral Palette */
+  --color-text-primary: #111827;
+  --color-text-secondary: #6B7280;
+  --color-text-muted: #9CA3AF;
+  --color-border: #E5E7EB;
+  --color-border-light: #F3F4F6;
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #F9FAFB;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+
+  /* Spacing */
+  --section-padding-y: 120px;
+  --section-padding-y-mobile: 80px;
+
+  /* Font */
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Thinner Font Weights for Inter */
+  --font-weight-bold: 600;      /* Map bold to 600 (semibold) */
+  --font-weight-semibold: 500;  /* Map semibold to 500 (medium) */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ========================================
+   Base Styles
+   ======================================== */
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Lenis smooth scrolling helper styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-surface);
+  line-height: 1.7;
+  font-size: 18px;
+}
+
+/* Typography refinements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-weight: 600; /* Use semibold (600) for a thinner, sleeker heading */
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-brand-100);
+  color: var(--color-brand-dark);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+
+.section-container {
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: 48px;
+    padding-right: 48px;
+  }
+}
+
+.section-padding {
+  padding-top: var(--section-padding-y-mobile);
+  padding-bottom: var(--section-padding-y-mobile);
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+  }
+}
+
+/* Premium card style */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-border-light);
+}
+
+/* Button base */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  background-color: var(--color-brand);
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 5px;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  border: 1px solid transparent;
+  letter-spacing: -0.01em;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-brand-dark);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  background-color: transparent;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-surface-raised);
+  border-color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+/* Arrow transition */
+.btn-primary svg:last-child,
+.btn-secondary svg:last-child {
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn-primary:hover svg:last-child,
+.btn-secondary:hover svg:last-child {
+  transform: translateX(4px);
+}
+
+/* Section label badge */
+.section-label {
+  display: inline-block;
+  color: var(--color-brand);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+/* Custom Cursor styles: Hide default cursor on desktop screens */
+@media (hover: hover) and (pointer: fine) {
+  html, body, a, button, [role="button"], .card, [data-cursor="pointer"] {
+    cursor: none !important;
+  }
+}
+
+/* About Section Card Stacking & Smooth Exit */
+.about-card-wrapper {
+  position: relative;
+}
+
+@media (min-width: 1024px) {
+  .about-card-wrapper {
+    position: sticky;
+    top: calc(120px + var(--index) * 48px);
+    z-index: calc(10 + var(--index));
+    padding-bottom: calc((var(--total) - 1 - var(--index)) * 48px);
+  }
+
+  .about-card {
+    height: 590px;
+  }
+}
+
+/* ========================================
+   Process Section Timeline
+   ======================================== */
+
+/* Icon circle */
+.process-step__circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-brand-dark) 0%, var(--color-brand-light) 100%);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.28);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.process-step:hover .process-step__circle {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.38);
+}
+
+/* "Step N" label */
+.process-step__label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  margin-bottom: 8px;
+  opacity: 0.75;
 }
