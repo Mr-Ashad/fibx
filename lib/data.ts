@@ -297,6 +297,16 @@ export const projects: Project[] = [
     image: "/cbt-foundry.png",
     href: "#contact",
   },
+  {
+    title: "Reelflux.co",
+    category: "Personal Portfolio",
+    description:
+      "A premium portfolio and showreel platform for digital creator Mohammed Aspan, showcasing high-retention video production, brand design, and AI visual assets.",
+    technologies: ["React", "Next.js", "Framer Motion", "Tailwind CSS"],
+    color: "linear-gradient(135deg, #7f00ff 0%, #ff007f 100%)",
+    image: "/reelflux.png",
+    href: "https://mohammedaspan.kesug.com/",
+  },
 ];
 
 /* ========================================
