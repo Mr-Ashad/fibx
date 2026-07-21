@@ -69,7 +69,7 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 rounded-lg transition-colors"
+          className="md:hidden p-2 rounded-lg transition-colors text-slate-800"
           onClick={() => setIsMobileOpen(!isMobileOpen)}
           aria-label={isMobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={isMobileOpen}

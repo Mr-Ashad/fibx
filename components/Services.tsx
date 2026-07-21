@@ -6,47 +6,47 @@ import { services } from "@/lib/data";
 // 1. Web Dev Mockup (Mini Browser Window)
 const WebDevMockup = () => {
   return (
-    <div className="w-full relative mt-6 lg:mt-0 aspect-[16/10] lg:aspect-auto lg:h-[220px] bg-slate-50 border border-slate-200/60 rounded-tl-xl overflow-hidden shadow-sm transition-all duration-300 group-hover:border-blue-200 group-hover:shadow-md">
+    <div className="w-full relative mt-6 lg:mt-0 h-[130px] bg-slate-50 border border-slate-200/60 rounded-tl-xl overflow-hidden shadow-sm transition-all duration-300 group-hover:border-blue-200 group-hover:shadow-md">
       {/* Browser header */}
-      <div className="flex items-center gap-1.5 px-3 py-2 bg-slate-100/80 border-b border-slate-200/60">
-        <div className="w-2 h-2 rounded-full bg-red-400" />
-        <div className="w-2 h-2 rounded-full bg-yellow-400" />
-        <div className="w-2 h-2 rounded-full bg-green-400" />
-        <div className="ml-4 flex-1 max-w-[140px] h-4 rounded bg-white text-[8px] text-slate-400 flex items-center px-2 select-none border border-slate-200/40">
+      <div className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100/80 border-b border-slate-200/60">
+        <div className="w-1.5 h-1.5 rounded-full bg-red-400" />
+        <div className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+        <div className="w-1.5 h-1.5 rounded-full bg-green-400" />
+        <div className="ml-3 flex-1 max-w-[100px] h-3.5 rounded bg-white text-[7px] text-slate-400 flex items-center px-1.5 select-none border border-slate-200/40">
           fibx.agency
         </div>
       </div>
       {/* Browser content */}
-      <div className="p-4 relative h-full flex flex-col justify-between overflow-hidden">
+      <div className="p-3 relative h-[94px] flex flex-col justify-between overflow-hidden">
         {/* Simple layout wireframe */}
-        <div className="space-y-2.5">
+        <div className="space-y-1.5">
           <div className="flex justify-between items-center">
-            <div className="w-8 h-2 rounded bg-blue-600/20" />
+            <div className="w-6 h-1.5 rounded bg-blue-600/20" />
             <div className="flex gap-1">
-              <div className="w-4 h-1.5 rounded bg-slate-200" />
-              <div className="w-4 h-1.5 rounded bg-slate-200" />
+              <div className="w-3 h-1 rounded bg-slate-200" />
+              <div className="w-3 h-1 rounded bg-slate-200" />
             </div>
           </div>
-          <div className="space-y-1">
-            <div className="w-2/3 h-3 rounded bg-slate-800/80" />
-            <div className="w-1/2 h-2 rounded bg-slate-400/60" />
+          <div className="space-y-0.5">
+            <div className="w-1/2 h-2 rounded bg-slate-800/80" />
+            <div className="w-1/3 h-1 rounded bg-slate-400/60" />
           </div>
           {/* Visual grid in mockup */}
-          <div className="grid grid-cols-3 gap-1.5 pt-1">
-            <div className="h-8 rounded bg-blue-50 border border-blue-100" />
-            <div className="h-8 rounded bg-slate-100" />
-            <div className="h-8 rounded bg-slate-100" />
+          <div className="grid grid-cols-3 gap-1 pt-0.5">
+            <div className="h-6 rounded bg-blue-50 border border-blue-100" />
+            <div className="h-6 rounded bg-slate-100" />
+            <div className="h-6 rounded bg-slate-100" />
           </div>
         </div>
         
         {/* Floating tech badges */}
-        <div className="absolute right-4 top-10 px-2 py-1 rounded-md bg-white shadow-sm border border-slate-200/80 text-[9px] font-bold text-blue-500 flex items-center gap-1 select-none">
+        <div className="absolute right-2.5 top-6 px-1.5 py-0.5 rounded bg-white shadow-xs border border-slate-200/80 text-[7.5px] font-bold text-blue-500 flex items-center gap-0.5 select-none leading-none">
           React
         </div>
-        <div className="absolute right-16 top-16 px-2 py-1 rounded-md bg-slate-900 shadow-sm text-[9px] font-bold text-white flex items-center gap-1 select-none">
+        <div className="absolute right-11 top-11 px-1.5 py-0.5 rounded bg-slate-900 shadow-xs text-[7.5px] font-bold text-white flex items-center gap-0.5 select-none leading-none">
           Next.js
         </div>
-        <div className="absolute right-8 bottom-3 px-2 py-1 rounded-md bg-white shadow-sm border border-slate-200/80 text-[9px] font-bold text-cyan-500 flex items-center gap-1 select-none">
+        <div className="absolute right-3.5 bottom-1.5 px-1.5 py-0.5 rounded bg-white shadow-xs border border-slate-200/80 text-[7.5px] font-bold text-cyan-500 flex items-center gap-0.5 select-none leading-none">
           Tailwind
         </div>
       </div>

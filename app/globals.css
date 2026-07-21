@@ -265,13 +265,22 @@ h6 {
 /* About Section Card Stacking & Smooth Exit */
 .about-card-wrapper {
   position: relative;
+  position: sticky;
+  top: calc(96px + var(--index) * 16px);
+  z-index: calc(10 + var(--index));
+  padding-bottom: calc((var(--total) - 1 - var(--index)) * 16px);
+}
+
+@media (min-width: 768px) {
+  .about-card-wrapper {
+    top: calc(100px + var(--index) * 32px);
+    padding-bottom: calc((var(--total) - 1 - var(--index)) * 32px);
+  }
 }
 
 @media (min-width: 1024px) {
   .about-card-wrapper {
-    position: sticky;
     top: calc(120px + var(--index) * 48px);
-    z-index: calc(10 + var(--index));
     padding-bottom: calc((var(--total) - 1 - var(--index)) * 48px);
   }
 

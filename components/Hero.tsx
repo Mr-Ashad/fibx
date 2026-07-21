@@ -83,10 +83,11 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="hidden lg:flex items-center justify-center"
+            className="flex items-center justify-center mt-12 lg:mt-0"
             aria-hidden="true"
           >
-            <div className="relative w-[480px] h-[480px]">
+            <div className="relative w-[300px] h-[300px] sm:w-[380px] sm:h-[380px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] flex items-center justify-center">
+              <div className="relative w-[480px] h-[480px] scale-[0.625] sm:scale-[0.79] md:scale-[0.875] lg:scale-100 origin-center flex-shrink-0">
               {/* Outer dashed orbital ring */}
               <div
                 className="absolute inset-8 rounded-full z-0"
@@ -282,7 +283,8 @@ export default function Hero() {
                 </div>
               </motion.div>
             </div>
-          </motion.div>
+          </div>
+        </motion.div>
         </div>
       </div>
     </section>

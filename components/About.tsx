@@ -10,7 +10,7 @@ const CanvasView = () => {
   const isInView = useInView(containerRef, { once: false, amount: 0.1 });
 
   return (
-    <div ref={containerRef} className="relative w-full h-[420px] bg-slate-50 border border-slate-200/50 rounded-xl overflow-hidden flex flex-col">
+    <div ref={containerRef} className="relative w-full h-[280px] sm:h-[340px] md:h-[380px] lg:h-[420px] bg-slate-50 border border-slate-200/50 rounded-xl overflow-hidden flex flex-col">
       {/* Canvas Top Bar */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-200/50 bg-white/80 backdrop-blur-sm">
         <span className="text-[10px] font-bold text-slate-400 select-none uppercase tracking-wider font-mono">Canvas Workspace</span>
@@ -67,7 +67,7 @@ const EditorView = () => {
   const isInView = useInView(containerRef, { once: false, amount: 0.1 });
 
   return (
-    <div ref={containerRef} className="relative w-full h-[420px] bg-slate-950 border border-slate-900 rounded-xl overflow-hidden flex flex-col font-mono">
+    <div ref={containerRef} className="relative w-full h-[280px] sm:h-[340px] md:h-[380px] lg:h-[420px] bg-slate-950 border border-slate-900 rounded-xl overflow-hidden flex flex-col font-mono">
       {/* Editor Top Bar */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-900 bg-slate-900/60 backdrop-blur-sm">
         <div className="flex items-center gap-1.5">
@@ -108,7 +108,7 @@ const EditorView = () => {
 // Vitals View for Performance Card
 const VitalsView = () => {
   return (
-    <div className="relative w-full h-[420px] bg-white border border-slate-200/50 rounded-xl overflow-hidden flex flex-col">
+    <div className="relative w-full h-[280px] sm:h-[340px] md:h-[380px] lg:h-[420px] bg-white border border-slate-200/50 rounded-xl overflow-hidden flex flex-col">
       {/* Vitals Top Bar */}
       <div className="flex items-center justify-between px-4 py-2.5 border-b border-slate-200/50 bg-slate-50">
         <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider font-mono">Edge Performance Vitals</span>
@@ -200,7 +200,7 @@ const VitalsView = () => {
 
 export default function About() {
   return (
-    <section id="about" className="section-padding relative bg-white">
+    <section id="about" className="pt-[var(--section-padding-y-mobile)] pb-12 md:pt-[var(--section-padding-y)] md:pb-[var(--section-padding-y)] relative bg-white">
       {/* Decorative background glow */}
       <div 
         className="absolute inset-0 pointer-events-none select-none opacity-[0.25]"
@@ -236,7 +236,7 @@ export default function About() {
         </motion.div>
 
         {/* Scroll-Stacked Cards Deck with Narrower Width & Scroll Space */}
-        <div className="relative flex flex-col gap-6 max-w-4xl mx-auto pb-16">
+        <div className="relative flex flex-col gap-6 max-w-4xl mx-auto pb-6 md:pb-16">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             
@@ -248,12 +248,12 @@ export default function About() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.55, delay: index * 0.12 }}
                 style={{ 
-                  "--index": index,
-                  "--total": features.length,
+                  "--index": index.toString(),
+                  "--total": features.length.toString(),
                 } as React.CSSProperties}
                 className="about-card-wrapper w-full"
               >
-                <div className="about-card rounded-3xl border border-slate-200 bg-white p-6 md:p-8 lg:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-[0_30px_70px_rgba(0,0,0,0.08)] hover:border-slate-300 flex flex-col gap-6 min-h-[700px]">
+                <div className="about-card rounded-3xl border border-slate-200 bg-white p-6 md:p-8 lg:p-10 shadow-[0_25px_60px_rgba(0,0,0,0.05)] transition-all duration-300 hover:shadow-[0_30px_70px_rgba(0,0,0,0.08)] hover:border-slate-300 flex flex-col gap-6 min-h-[520px] sm:min-h-[600px] md:min-h-[660px] lg:min-h-[700px]">
                   {/* Text on Top */}
                   <div>
                     {/* Icon */}

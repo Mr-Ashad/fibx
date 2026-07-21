@@ -11,7 +11,8 @@ export default function Footer() {
       style={{ borderTop: "1px solid var(--color-border)" }}
     >
       <div className="section-container">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10 mb-12">
+        {/* Desktop Footer Top Row */}
+        <div className="hidden md:flex flex-row items-center justify-between gap-10 mb-12">
           {/* Logo & Description */}
           <div className="max-w-xs">
             <a href="#" className="flex items-center gap-2 mb-3" aria-label="FIBX Home">
@@ -40,6 +41,20 @@ export default function Footer() {
               ))}
             </ul>
           </nav>
+        </div>
+
+        {/* Mobile Footer Top Row */}
+        <div className="flex md:hidden flex-row items-start justify-between gap-6 mb-10 w-full">
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-2" aria-label="FIBX Home">
+            <span className="text-xl font-bold tracking-tight" style={{ color: "var(--color-text-primary)" }}>
+              FIBX
+            </span>
+          </a>
+          {/* Description (Left-aligned on mobile, fits in 2 lines) */}
+          <p className="text-[13px] leading-relaxed text-left max-w-[235px]" style={{ color: "var(--color-text-secondary)" }}>
+            Premium software engineering for businesses that demand excellence.
+          </p>
         </div>
 
         {/* Divider */}
